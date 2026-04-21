@@ -1,15 +1,3 @@
-# v0 sandbox internal files
-__v0_runtime_loader.js
-__v0_devtools.tsx
-__v0_jsx-dev-runtime.ts
-.snowflake/
-.v0-trash/
-.vercel/
-next.user-config.*
-
-# Environment variables
-.env*.local
-
 # Dependencies
 node_modules/
 .pnp
@@ -17,6 +5,13 @@ node_modules/
 pnpm-lock.yaml
 yarn.lock
 package-lock.json
+
+# v0 sandbox internal files
+__v0_runtime_loader.js
+__v0_devtools.tsx
+__v0_jsx-dev-runtime.ts
+.snowflake/
+.v0-trash/
 
 # Next.js
 .next/
@@ -35,10 +30,21 @@ dist/
 *.swp
 *.swo
 *~
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
 
 # OS
 .DS_Store
 Thumbs.db
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 
 # Logs
 logs
@@ -46,6 +52,13 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
 
 # Testing
 coverage
@@ -53,14 +66,7 @@ coverage
 
 # Vercel
 .vercel/
+next.user-config.*
 
-# codex
-.codex
-
-#docs
-doc/
-
-#videos
+# Media files
 productvid/
-
-
