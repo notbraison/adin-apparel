@@ -114,13 +114,13 @@ export default function Home() {
   const [activeIndex, setActiveIndex] = useState(0); // real slide index (0..slides.length-1)
 
   const renderedSlides = useMemo(
-    () => [
-      { ...slides[slides.length - 1], _isClone: true, _realIndex: slides.length - 1 },
-      ...slides.map((s, i) => ({ ...s, _isClone: false, _realIndex: i })),
-      { ...slides[0], _isClone: true, _realIndex: 0 },
-    ],
-    [slides]
-  );
+  () => [
+    // Remove the top clone (slides[slides.length - 1])
+    ...slides.map((s, i) => ({ ...s, _isClone: false, _realIndex: i })),
+    { ...slides[0], _isClone: true, _realIndex: 0 }, // Only keep the bottom clone
+  ],
+  [slides]
+);
 
   const scrollToRenderedIndex = (renderedIndex: number, behavior: ScrollBehavior) => {
     const container = containerRef.current;
@@ -159,31 +159,29 @@ export default function Home() {
 
   const observer = new IntersectionObserver(
     (entries) => {
-      const visible = entries.find((e) => e.isIntersecting);
+      // Find the slide that is most visible
+      const visible = entries.find((e) => e.isIntersecting && e.intersectionRatio > 0.5);
       if (!visible) return;
 
       const renderedIndex = nodes.indexOf(visible.target as HTMLElement);
       const slideData = renderedSlides[renderedIndex] as any;
-      
+
       setActiveIndex(slideData._realIndex);
 
-      // THE MAGIC JUMP
-      if (slideData._isClone) {
-        // We use a tiny timeout or requestAnimationFrame to ensure 
-        // the "smooth" scroll has finished before we "teleport"
+      // Handle the infinite loop back to top
+      if (slideData._isClone && renderedIndex === renderedSlides.length - 1) {
+        // Use a slight delay or RAF to prevent the "two slides" glitch
         setTimeout(() => {
-          if (renderedIndex === 0) {
-            // Jump from top clone to the actual last slide
-            scrollToRenderedIndex(slides.length, 'auto');
-          } else if (renderedIndex === renderedSlides.length - 1) {
-            // Jump from bottom clone to the actual first slide
-            scrollToRenderedIndex(1, 'auto');
-          }
-        }, 50); // Small delay prevents the 'stutter'
+          const container = containerRef.current;
+          if (!container) return;
+          
+          // Teleport back to the REAL first slide (index 0 now, since we removed the top clone)
+          container.scrollTo({ top: 0, behavior: 'auto' });
+        }, 30); 
       }
     },
     { 
-      threshold: 0.5, // Fire when half the slide is visible
+      threshold: 0.6, // Higher threshold ensures we are locked in before jumping
       root: containerRef.current 
     }
   );

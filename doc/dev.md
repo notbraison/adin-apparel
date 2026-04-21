@@ -12,6 +12,16 @@ SEO slugs image names
 payments mpesa send, pay bill, bank
 adinest2023@gmail.com
 
+## prices
+1. Full set of hoodie+ sweatpants = ksh 4k each 
+2. ⁠Hoodie alone = ksh 2700 each 
+3. ⁠sweatpant alone= ksh 1700 each
+4. Varsity Jackets = ksh 2800 each 
+5. ⁠Sweat short = ksh 1300 each
+6. ⁠sweatshirt = ksh 2200 each
+7. ⁠Heavy duty T- shirt = ksh 1200 each .
+8. ⁠Tracker Hats = ksh 800 each
+
 ## INSPO SITES
 
 

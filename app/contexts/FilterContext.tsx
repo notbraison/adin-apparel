@@ -23,7 +23,7 @@ const FilterContext = createContext<FilterContextType | undefined>(undefined);
 export function FilterProvider({ children }: { children: React.ReactNode }) {
   const [selectedCategory, setCategory] = useState<string | null>(null);
   const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 500]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 5000]);
   const [sortBy, setSortBy] = useState<SortBy>('newest');
 
   const toggleSize = useCallback((size: string) => {
@@ -39,7 +39,7 @@ export function FilterProvider({ children }: { children: React.ReactNode }) {
   const resetFilters = useCallback(() => {
     setCategory(null);
     setSelectedSizes([]);
-    setPriceRange([0, 500]);
+    setPriceRange([0, 5000]);
     setSortBy('newest');
   }, []);
 

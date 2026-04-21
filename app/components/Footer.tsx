@@ -37,8 +37,8 @@ export function Footer() {
               <a href="tel:+254700000000" className="block hover:text-white transition">
                 +254 700 000 000
               </a>
-              <a href="mailto:support@adinapparel.com" className="block hover:text-white transition">
-                support@adinapparel.com
+              <a href="mailto:adinest2023@gmail.com" className="block hover:text-white transition">
+                adinest2023@gmail.com
               </a>
             </div>
           </div>
@@ -113,7 +113,7 @@ export function Footer() {
           <div className="space-y-4">
             <h3 className="text-sm font-semibold tracking-wide uppercase">Stay Connected</h3>
             <div className="flex items-center gap-4 text-white">
-              <a href="#" aria-label="Instagram" className="hover:text-white/80 transition">
+              <a href="https://www.instagram.com/_adin_apparels_?igsh=MW05Z2RyMnB5ajU1bw==" aria-label="Instagram" className="hover:text-white/80 transition">
                 <Instagram size={18} />
               </a>
               <a href="#" aria-label="Facebook" className="hover:text-white/80 transition">
