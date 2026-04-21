@@ -68,5 +68,14 @@ coverage
 .vercel/
 next.user-config.*
 
+# Media files & Large files
+*.MOV
+*.mov
+*.mp4
+*.avi
+*.mkv
+productvid/
+app/public/productvid/
+
 # Media files
 productvid/
