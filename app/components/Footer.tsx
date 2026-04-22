@@ -35,7 +35,7 @@ export function Footer() {
 
             <div className="pt-4 text-sm text-white/80 space-y-1">
               <a href="tel:+254700000000" className="block hover:text-white transition">
-                +254 700 000 000
+                +254 759116036
               </a>
               <a href="mailto:adinest2023@gmail.com" className="block hover:text-white transition">
                 adinest2023@gmail.com
