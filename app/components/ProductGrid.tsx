@@ -9,9 +9,12 @@ interface ProductGridProps {
 }
 
 export function ProductGrid({ products, isLoading }: ProductGridProps) {
+  const gridClassName =
+    'grid gap-4 lg:gap-5 grid-cols-[repeat(auto-fit,minmax(190px,1fr))] sm:grid-cols-[repeat(auto-fit,minmax(220px,1fr))] 2xl:grid-cols-[repeat(auto-fit,minmax(240px,1fr))]';
+
   if (isLoading) {
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className={gridClassName}>
         {[...Array(8)].map((_, i) => (
           <div key={i} className="animate-pulse">
             <div className="aspect-square bg-muted rounded mb-4" />
@@ -35,7 +38,7 @@ export function ProductGrid({ products, isLoading }: ProductGridProps) {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <div className={gridClassName}>
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}

@@ -1,35 +1,54 @@
 'use client';
 
 import { useFilters } from '@/contexts/FilterContext';
-import { categories, sizes, priceRanges } from '@/lib/products';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { ChevronDown } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function Filters() {
   const {
-    selectedCategory,
-    selectedSizes,
     priceRange,
     sortBy,
-    setCategory,
-    toggleSize,
     setPriceRange,
     setSortBy,
     resetFilters,
   } = useFilters();
 
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
-    category: true,
-    size: true,
     price: true,
     sort: true,
   });
+
+  const [minPrice, setMinPrice] = useState(String(priceRange[0]));
+  const [maxPrice, setMaxPrice] = useState(String(priceRange[1]));
+
+  useEffect(() => {
+    setMinPrice(String(priceRange[0]));
+    setMaxPrice(String(priceRange[1]));
+  }, [priceRange]);
 
   const toggleSection = (section: string) => {
     setExpandedSections((prev) => ({
       ...prev,
       [section]: !prev[section],
     }));
+  };
+
+  const applyPrice = () => {
+    const parsedMin = Number.parseInt(minPrice, 10);
+    const parsedMax = Number.parseInt(maxPrice, 10);
+
+    const nextMin = Number.isFinite(parsedMin) ? parsedMin : 0;
+    const nextMax = Number.isFinite(parsedMax) ? parsedMax : 5000;
+
+    const clampedMin = Math.max(0, Math.min(5000, nextMin));
+    const clampedMax = Math.max(0, Math.min(5000, nextMax));
+
+    setPriceRange([
+      Math.min(clampedMin, clampedMax),
+      Math.max(clampedMin, clampedMax),
+    ]);
   };
 
   return (
@@ -70,79 +89,6 @@ export function Filters() {
         )}
       </div>
 
-      {/* Category */}
-      <div className="pb-6 border-b border-border">
-        <button
-          onClick={() => toggleSection('category')}
-          className="w-full flex items-center justify-between mb-4"
-        >
-          <h3 className="text-sm font-semibold uppercase">Category</h3>
-          <ChevronDown
-            size={16}
-            className={`transition-transform ${expandedSections.category ? 'rotate-180' : ''}`}
-          />
-        </button>
-        {expandedSections.category && (
-          <div className="space-y-3">
-            <label className="flex items-center gap-3 cursor-pointer">
-              <input
-                type="radio"
-                name="category"
-                checked={selectedCategory === null}
-                onChange={() => setCategory(null)}
-                className="w-4 h-4 accent-primary"
-              />
-              <span className="text-sm text-foreground">All Products</span>
-            </label>
-            {categories.map((cat) => (
-              <label key={cat.id} className="flex items-center gap-3 cursor-pointer">
-                <input
-                  type="radio"
-                  name="category"
-                  value={cat.id}
-                  checked={selectedCategory === cat.id}
-                  onChange={() => setCategory(cat.id)}
-                  className="w-4 h-4 accent-primary"
-                />
-                <span className="text-sm text-foreground">{cat.name}</span>
-                <span className="text-xs text-muted-foreground">({cat.count})</span>
-              </label>
-            ))}
-          </div>
-        )}
-      </div>
-
-      {/* Size */}
-      <div className="pb-6 border-b border-border">
-        <button
-          onClick={() => toggleSection('size')}
-          className="w-full flex items-center justify-between mb-4"
-        >
-          <h3 className="text-sm font-semibold uppercase">Size</h3>
-          <ChevronDown
-            size={16}
-            className={`transition-transform ${expandedSections.size ? 'rotate-180' : ''}`}
-          />
-        </button>
-        {expandedSections.size && (
-          <div className="flex flex-wrap gap-2">
-            {sizes.map((size) => (
-              <button
-                key={size}
-                onClick={() => toggleSize(size)}
-                className={`px-3 py-2 text-xs font-medium rounded border transition ${
-                  selectedSizes.includes(size)
-                    ? 'bg-primary text-primary-foreground border-primary'
-                    : 'border-border text-foreground hover:border-primary'
-                }`}
-              >
-                {size}
-              </button>
-            ))}
-          </div>
-        )}
-      </div>
-
       {/* Price */}
       <div className="pb-6 border-b border-border">
         <button
@@ -156,20 +102,49 @@ export function Filters() {
           />
         </button>
         {expandedSections.price && (
-          <div className="space-y-3">
-            {priceRanges.map((range) => (
-              <label key={`${range.min}-${range.max}`} className="flex items-center gap-3 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={
-                    priceRange[0] <= range.min && priceRange[1] >= range.max
-                  }
-                  onChange={() => setPriceRange([range.min, range.max])}
-                  className="w-4 h-4 accent-primary"
+          <div className="space-y-4">
+            <div className="grid grid-cols-2 gap-3">
+              <div className="space-y-1.5">
+                <label className="text-xs font-medium text-muted-foreground">Min (KSh)</label>
+                <Input
+                  inputMode="numeric"
+                  type="number"
+                  min={0}
+                  max={5000}
+                  step={100}
+                  value={minPrice}
+                  onChange={(e) => setMinPrice(e.target.value)}
+                  onBlur={applyPrice}
                 />
-                <span className="text-sm text-foreground">{range.label}</span>
-              </label>
-            ))}
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-medium text-muted-foreground">Max (KSh)</label>
+                <Input
+                  inputMode="numeric"
+                  type="number"
+                  min={0}
+                  max={5000}
+                  step={100}
+                  value={maxPrice}
+                  onChange={(e) => setMaxPrice(e.target.value)}
+                  onBlur={applyPrice}
+                />
+              </div>
+            </div>
+
+            <div className="flex gap-2">
+              <Button type="button" variant="outline" className="flex-1" onClick={applyPrice}>
+                Apply
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                className="flex-1"
+                onClick={() => setPriceRange([0, 5000])}
+              >
+                Clear
+              </Button>
+            </div>
           </div>
         )}
       </div>

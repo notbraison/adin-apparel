@@ -21,8 +21,8 @@ export const metadata: Metadata = {
   title: 'AdinApparel - Premium Clothing',
   description: 'Walk with confidence. Explore our premium clothing collection.',
   icons: {
-    icon: '/adinicon.png',
-    apple: '/adinicon.png',
+    icon: '/productimg/adinicongold.jpg',
+    apple: '/productimg/adinicongold.jpg',
   },
 }
 

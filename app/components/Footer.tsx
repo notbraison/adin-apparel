@@ -7,7 +7,16 @@ export function Footer() {
   return (
     <footer className="mt-16 bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-[220px_repeat(3,minmax(0,1fr))] gap-10">
+          <div className="flex md:block items-start justify-center md:justify-start">
+            <img
+              src="/productimg/adinicongold.jpg"
+              alt="ADIN Icon"
+              className="w-28 h-28 md:w-32 md:h-32 object-contain"
+              loading="lazy"
+            />
+          </div>
+
           <div className="space-y-4">
             <h3 className="text-sm font-semibold tracking-wide uppercase">Company</h3>
             <ul className="space-y-2 text-sm text-white/80">
@@ -80,47 +89,28 @@ export function Footer() {
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold tracking-wide uppercase">Wholesale Resources</h3>
-            <ul className="space-y-2 text-sm text-white/80">
-              <li>
-                <a href="#" className="hover:text-white transition">
-                  Fabric Range
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition">
-                  Colour Range
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition">
-                  Downloads & Assets
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition">
-                  Printers & Embroiderers
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition">
-                  Invoices & Payments
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div className="space-y-4">
             <h3 className="text-sm font-semibold tracking-wide uppercase">Stay Connected</h3>
-            <div className="flex items-center gap-4 text-white">
-              <a href="https://www.instagram.com/_adin_apparels_?igsh=MW05Z2RyMnB5ajU1bw==" aria-label="Instagram" className="hover:text-white/80 transition">
-                <Instagram size={18} />
+            <div className="flex items-center gap-3">
+              <a
+                href="https://www.instagram.com/_adin_apparels_?igsh=MW05Z2RyMnB5ajU1bw=="
+                aria-label="Instagram"
+                className="group inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition"
+              >
+                <Instagram size={18} className="text-pink-500 group-hover:text-pink-400 transition" />
               </a>
-              <a href="#" aria-label="Facebook" className="hover:text-white/80 transition">
-                <Facebook size={18} />
+              <a
+                href="#"
+                aria-label="Facebook"
+                className="group inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition"
+              >
+                <Facebook size={18} className="text-blue-500 group-hover:text-blue-400 transition" />
               </a>
-              <a href="#" aria-label="TikTok" className="hover:text-white/80 transition">
-                <Music2 size={18} />
+              <a
+                href="#"
+                aria-label="TikTok"
+                className="group inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition"
+              >
+                <Music2 size={18} className="text-cyan-400 group-hover:text-cyan-300 transition" />
               </a>
             </div>
 

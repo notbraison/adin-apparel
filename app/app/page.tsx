@@ -84,7 +84,7 @@ export default function Home() {
         subtext: 'Classic meets modern',
         tone: 'dark',
         align: 'right',
-        cta: { label: 'Shop Jackets', href: '/shop?category=jackets' },
+        cta: { label: 'Shop Outerwear', href: '/shop?category=outerwear' },
       },
       {
         key: 'branding',
@@ -134,23 +134,27 @@ export default function Home() {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
       e.preventDefault();
-      const nextIndex =
-        e.key === 'ArrowDown'
-          ? activeIndex === slides.length - 1
-            ? 0
-            : activeIndex + 1
-          : activeIndex === 0
-          ? slides.length - 1
-          : activeIndex - 1;
-      scrollToRenderedIndex(nextIndex + 1, 'smooth');
+      if (e.key === 'ArrowDown') {
+        // When going forward from the last slide, scroll to the bottom clone,
+        // then the IntersectionObserver teleports back to the first slide.
+        const targetRenderedIndex =
+          activeIndex === slides.length - 1 ? slides.length : activeIndex + 1;
+        scrollToRenderedIndex(targetRenderedIndex, 'smooth');
+        return;
+      }
+
+      // ArrowUp
+      const targetRenderedIndex =
+        activeIndex === 0 ? slides.length - 1 : activeIndex - 1;
+      scrollToRenderedIndex(targetRenderedIndex, 'smooth');
     };
     window.addEventListener('keydown', onKeyDown, { passive: false });
     return () => window.removeEventListener('keydown', onKeyDown as any);
   }, [activeIndex, slides.length]);
 
   useEffect(() => {
-    // Start on the first real slide (rendered index 1) so the loop feels continuous.
-    scrollToRenderedIndex(1, 'auto');
+    // Always start on the first slide (rendered index 0).
+    scrollToRenderedIndex(0, 'auto');
   }, [slides.length]);
 
   useEffect(() => {
@@ -254,28 +258,28 @@ export default function Home() {
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                           {[
                             {
-                              name: 'Hoodies',
-                              count: '6 items',
+                              name: 'Outerwear',
+                              count: 'Jackets & Hoodies',
                               image: '/productimg/grayHoodie.jpeg',
-                              href: '/shop',
+                              href: '/shop?category=outerwear',
                             },
                             {
-                              name: 'Sweatpants',
-                              count: '8 items',
+                              name: 'Legwear',
+                              count: 'Shorts & Sweatpants',
                               image: '/productimg/matching sweatpants.jpeg',
-                              href: '/shop?category=sweatpants',
+                              href: '/shop?category=legwear',
                             },
                             {
-                              name: 'Jackets',
-                              count: '4 items',
-                              image: '/productimg/Studio portrait.JPG',
-                              href: '/shop?category=jackets',
+                              name: 'Shirts',
+                              count: 'Tees & Sweatshirts',
+                              image: '/productimg/blacktshirt.jpg',
+                              href: '/shop?category=shirts',
                             },
                             {
-                              name: 'Sets',
-                              count: '5 items',
+                              name: 'Bundles',
+                              count: 'Bundle Deals',
                               image: '/productimg/burgundy set.jpeg',
-                              href: '/shop',
+                              href: '/shop?category=bundle',
                             },
                           ].map((c) => (
                             <Link
@@ -342,7 +346,7 @@ export default function Home() {
                   <button
                     type="button"
                     onClick={() =>
-                      scrollToRenderedIndex(2, 'smooth')
+                      scrollToRenderedIndex(1, 'smooth')
                     }
                     className="absolute bottom-7 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-white/90 hover:text-white transition"
                     aria-label="Scroll to next slide"
@@ -362,7 +366,7 @@ export default function Home() {
                       key={dotIndex}
                       type="button"
                       onClick={() =>
-                        scrollToRenderedIndex(dotIndex + 1, 'smooth')
+                        scrollToRenderedIndex(dotIndex, 'smooth')
                       }
                       aria-label={`Go to slide ${dotIndex + 1}`}
                       className={`h-2.5 w-2.5 rounded-full transition ${

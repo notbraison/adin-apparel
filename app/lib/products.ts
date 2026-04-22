@@ -81,7 +81,7 @@ export const products: Product[] = [
   {
     id: '6',
     name: 'Hoodie (Black)',
-    category: 'hoodies',
+    category: 'outerwear',
     price: 2700,
     image: productImg('Walk With Confidence.JPG'),
     description: 'Premium black hoodie.',
@@ -93,7 +93,7 @@ export const products: Product[] = [
   {
     id: '7',
     name: 'Hoodie (White)',
-    category: 'hoodies',
+    category: 'outerwear',
     price: 2700,
     image: defaultProductImage,
     description: 'Premium white hoodie.',
@@ -105,7 +105,7 @@ export const products: Product[] = [
   {
     id: '8',
     name: 'Hoodie (Brown)',
-    category: 'hoodies',
+    category: 'outerwear',
     price: 2700,
     image: productImg('brownmatching sweatpants2.jpeg'),
     description: 'Premium brown hoodie.',
@@ -117,7 +117,7 @@ export const products: Product[] = [
   {
     id: '9',
     name: 'Hoodie (Navy Blue)',
-    category: 'hoodies',
+    category: 'outerwear',
     price: 2700,
     image: productImg('navy blue set.jpeg'),
     description: 'Premium navy blue hoodie.',
@@ -129,7 +129,7 @@ export const products: Product[] = [
   {
     id: '10',
     name: 'Hoodie (Charcoal)',
-    category: 'hoodies',
+    category: 'outerwear',
     price: 2700,
     image: productImg('grayHoodie.jpeg'),
     description: 'Premium charcoal hoodie.',
@@ -143,7 +143,7 @@ export const products: Product[] = [
   {
     id: '11',
     name: 'Sweatpants (Black)',
-    category: 'sweatpants',
+    category: 'legwear',
     price: 1700,
     image: defaultProductImage,
     description: 'Premium black sweatpants.',
@@ -155,7 +155,7 @@ export const products: Product[] = [
   {
     id: '12',
     name: 'Sweatpants (White)',
-    category: 'sweatpants',
+    category: 'legwear',
     price: 1700,
     image: defaultProductImage,
     description: 'Premium white sweatpants.',
@@ -167,7 +167,7 @@ export const products: Product[] = [
   {
     id: '13',
     name: 'Sweatpants (Brown)',
-    category: 'sweatpants',
+    category: 'legwear',
     price: 1700,
     image: productImg('matching sweatpants.jpeg'),
     description: 'Premium brown sweatpants.',
@@ -179,7 +179,7 @@ export const products: Product[] = [
   {
     id: '14',
     name: 'Sweatpants (Navy Blue)',
-    category: 'sweatpants',
+    category: 'legwear',
     price: 1700,
     image: defaultProductImage,
     description: 'Premium navy blue sweatpants.',
@@ -191,7 +191,7 @@ export const products: Product[] = [
   {
     id: '15',
     name: 'Sweatpants (Charcoal)',
-    category: 'sweatpants',
+    category: 'legwear',
     price: 1700,
     image: defaultProductImage,
     description: 'Premium charcoal sweatpants.',
@@ -205,7 +205,7 @@ export const products: Product[] = [
   {
     id: '16',
     name: 'Varsity Jacket (Black)',
-    category: 'jackets',
+    category: 'outerwear',
     price: 2800,
     image: productImg('Studio portrait.JPG'),
     description: 'Classic black varsity jacket.',
@@ -217,7 +217,7 @@ export const products: Product[] = [
   {
     id: '17',
     name: 'Varsity Jacket (White)',
-    category: 'jackets',
+    category: 'outerwear',
     price: 2800,
     image: productImg('whitevarsityjacket.jpg'),
     description: 'Classic white varsity jacket.',
@@ -229,7 +229,7 @@ export const products: Product[] = [
   {
     id: '18',
     name: 'Varsity Jacket (Brown)',
-    category: 'jackets',
+    category: 'outerwear',
     price: 2800,
     image: defaultProductImage,
     description: 'Classic brown varsity jacket.',
@@ -241,7 +241,7 @@ export const products: Product[] = [
   {
     id: '19',
     name: 'Varsity Jacket (Navy Blue)',
-    category: 'jackets',
+    category: 'outerwear',
     price: 2800,
     image: productImg('bluevarsityjacket.jpg'),
     description: 'Classic navy blue varsity jacket.',
@@ -253,7 +253,7 @@ export const products: Product[] = [
   {
     id: '20',
     name: 'Varsity Jacket (Charcoal)',
-    category: 'jackets',
+    category: 'outerwear',
     price: 2800,
     image: defaultProductImage,
     description: 'Classic charcoal varsity jacket.',
@@ -267,7 +267,7 @@ export const products: Product[] = [
   {
     id: '21',
     name: 'Sweat Shorts (Black)',
-    category: 'shorts',
+    category: 'legwear',
     price: 1300,
     image: defaultProductImage,
     description: 'Black sweat shorts.',
@@ -279,7 +279,7 @@ export const products: Product[] = [
   {
     id: '22',
     name: 'Sweat Shorts (White)',
-    category: 'shorts',
+    category: 'legwear',
     price: 1300,
     image: defaultProductImage,
     description: 'White sweat shorts.',
@@ -291,7 +291,7 @@ export const products: Product[] = [
   {
     id: '23',
     name: 'Sweat Shorts (Brown)',
-    category: 'shorts',
+    category: 'legwear',
     price: 1300,
     image: defaultProductImage,
     description: 'Brown sweat shorts.',
@@ -303,7 +303,7 @@ export const products: Product[] = [
   {
     id: '24',
     name: 'Sweat Shorts (Navy Blue)',
-    category: 'shorts',
+    category: 'legwear',
     price: 1300,
     image: defaultProductImage,
     description: 'Navy blue sweat shorts.',
@@ -315,7 +315,7 @@ export const products: Product[] = [
   {
     id: '25',
     name: 'Sweat Shorts (Charcoal)',
-    category: 'shorts',
+    category: 'legwear',
     price: 1300,
     image: defaultProductImage,
     description: 'Charcoal sweat shorts.',
@@ -329,7 +329,7 @@ export const products: Product[] = [
   {
     id: '26',
     name: 'Sweatshirt (Black)',
-    category: 'sweatshirts',
+    category: 'shirts',
     price: 2200,
     image: defaultProductImage,
     description: 'Black crew sweatshirt.',
@@ -341,7 +341,7 @@ export const products: Product[] = [
   {
     id: '27',
     name: 'Sweatshirt (White)',
-    category: 'sweatshirts',
+    category: 'shirts',
     price: 2200,
     image: defaultProductImage,
     description: 'White crew sweatshirt.',
@@ -353,7 +353,7 @@ export const products: Product[] = [
   {
     id: '28',
     name: 'Sweatshirt (Brown)',
-    category: 'sweatshirts',
+    category: 'shirts',
     price: 2200,
     image: defaultProductImage,
     description: 'Brown crew sweatshirt.',
@@ -365,7 +365,7 @@ export const products: Product[] = [
   {
     id: '29',
     name: 'Sweatshirt (Navy Blue)',
-    category: 'sweatshirts',
+    category: 'shirts',
     price: 2200,
     image: defaultProductImage,
     description: 'Navy blue crew sweatshirt.',
@@ -377,7 +377,7 @@ export const products: Product[] = [
   {
     id: '30',
     name: 'Sweatshirt (Charcoal)',
-    category: 'sweatshirts',
+    category: 'shirts',
     price: 2200,
     image: defaultProductImage,
     description: 'Charcoal crew sweatshirt.',
@@ -391,7 +391,7 @@ export const products: Product[] = [
   {
     id: '31',
     name: 'Heavy Duty T-Shirt (Black)',
-    category: 'tshirts',
+    category: 'shirts',
     price: 1200,
     image: productImg('blacktshirt.jpg'),
     description: 'Heavy duty black tee.',
@@ -403,7 +403,7 @@ export const products: Product[] = [
   {
     id: '32',
     name: 'Heavy Duty T-Shirt (White)',
-    category: 'tshirts',
+    category: 'shirts',
     price: 1200,
     image: productImg('whitepoloshirt.jpg'),
     description: 'Heavy duty white tee.',
@@ -415,7 +415,7 @@ export const products: Product[] = [
   {
     id: '33',
     name: 'Heavy Duty T-Shirt (Brown)',
-    category: 'tshirts',
+    category: 'shirts',
     price: 1200,
     image: defaultProductImage,
     description: 'Heavy duty brown tee.',
@@ -427,7 +427,7 @@ export const products: Product[] = [
   {
     id: '34',
     name: 'Heavy Duty T-Shirt (Navy Blue)',
-    category: 'tshirts',
+    category: 'shirts',
     price: 1200,
     image: defaultProductImage,
     description: 'Heavy duty navy blue tee.',
@@ -439,7 +439,7 @@ export const products: Product[] = [
   {
     id: '35',
     name: 'Heavy Duty T-Shirt (Charcoal)',
-    category: 'tshirts',
+    category: 'shirts',
     price: 1200,
     image: defaultProductImage,
     description: 'Heavy duty charcoal tee.',
@@ -515,7 +515,7 @@ export const products: Product[] = [
   {
     id: '41',
     name: 'Varsity Jacket (Red)',
-    category: 'jackets',
+    category: 'outerwear',
     price: 2800,
     image: productImg('modelredvarsityjacket3.jpg'),
     description: 'Classic red varsity jacket.',
@@ -539,7 +539,7 @@ export const products: Product[] = [
   {
     id: '43',
     name: 'Heavy Duty T-Shirt (Yellow)',
-    category: 'tshirts',
+    category: 'shirts',
     price: 1200,
     image: productImg('yellowpoloshirt.jpg'),
     description: 'Heavy duty yellow tee.',
@@ -548,17 +548,65 @@ export const products: Product[] = [
     reviews: 0,
     inStock: true,
   },
+
+  // Branding (not for sale)
+  {
+    id: '44',
+    name: 'ADIN Icon (Gold)',
+    category: 'branding',
+    price: 0,
+    image: productImg('adinicongold.jpg'),
+    description: 'Brand asset: gold icon mark.',
+    sizes: ['One Size'],
+    rating: 5,
+    reviews: 0,
+    inStock: false,
+  },
+  {
+    id: '45',
+    name: 'The Meaning of ADIN',
+    category: 'branding',
+    price: 0,
+    image: productImg('meaningofadin.jpg'),
+    description: 'Brand asset: ADIN meaning graphic.',
+    sizes: ['One Size'],
+    rating: 5,
+    reviews: 0,
+    inStock: false,
+  },
+  {
+    id: '46',
+    name: 'ADIN Shopping Bag',
+    category: 'branding',
+    price: 0,
+    image: productImg('adinshoppingbag.jpeg'),
+    description: 'Brand asset: packaging and bag.',
+    sizes: ['One Size'],
+    rating: 5,
+    reviews: 0,
+    inStock: false,
+  },
+  {
+    id: '47',
+    name: 'Instagram QR',
+    category: 'branding',
+    price: 0,
+    image: productImg('Instagram QR.JPG'),
+    description: 'Brand asset: Instagram QR code.',
+    sizes: ['One Size'],
+    rating: 5,
+    reviews: 0,
+    inStock: false,
+  },
 ];
 
 export const categories = [
   { id: 'bundle', name: 'Bundle Deals', count: 5 },
-  { id: 'hoodies', name: 'Hoodies', count: 5 },
-  { id: 'sweatpants', name: 'Sweatpants', count: 5 },
-  { id: 'jackets', name: 'Varsity Jackets', count: 6 },
-  { id: 'shorts', name: 'Sweat Shorts', count: 5 },
-  { id: 'sweatshirts', name: 'Sweatshirts', count: 5 },
-  { id: 'tshirts', name: 'T-Shirts', count: 6 },
-  { id: 'caps', name: 'Trucker Hats', count: 6 },
+  { id: 'outerwear', name: 'Jackets & Hoodies', count: 11 },
+  { id: 'shirts', name: 'Shirts', count: 11 },
+  { id: 'legwear', name: 'Legwear', count: 10 },
+  { id: 'caps', name: 'Caps', count: 6 },
+  { id: 'branding', name: 'Branding', count: 4 },
 ];
 
 export const sizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'One Size'];

@@ -2,31 +2,27 @@
 
 import { useFilters } from '@/contexts/FilterContext';
 import Link from 'next/link';
-import { useState } from 'react';
 
 export function CategoryNav() {
   const { selectedCategory, setCategory } = useFilters();
-  const [isScrolled, setIsScrolled] = useState(false);
 
   const categories = [
-    { id: null, label: 'All Products' },
     { id: 'bundle', label: 'Bundle Deals' },
-    { id: 'hoodies', label: 'Hoodies' },
-    { id: 'jackets', label: 'Varsity Jackets' },
-    { id: 'shorts', label: 'Sweat Shorts' },
-    { id: 'tshirts', label: 'T-Shirts' },
-    { id: 'sweatshirts', label: 'Sweatshirts' },
-    { id: 'caps', label: 'Trucker Hats' },
-    { id: 'sweatpants', label: 'Sweatpants' },
+    { id: 'outerwear', label: 'Jackets & Hoodies' },
+    { id: 'shirts', label: 'Shirts' },
+    { id: 'legwear', label: 'Legwear' },
+    { id: 'caps', label: 'Caps' },
+    { id: 'branding', label: 'Branding' },
   ];
 
   return (
     <div className="sticky top-16 z-40 bg-white border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex overflow-x-auto no-scrollbar">
+      <div className="mx-auto w-full px-2 sm:px-4 lg:px-6 2xl:px-8">
+        <div className="flex justify-center overflow-x-auto no-scrollbar">
           {categories.map((cat) => (
-            <button
-              key={cat.id || 'all'}
+            <Link
+              key={cat.id}
+              href={`/shop?category=${encodeURIComponent(cat.id)}`}
               onClick={() => setCategory(cat.id)}
               className={`whitespace-nowrap px-4 py-4 text-sm font-medium border-b-2 transition ${
                 selectedCategory === cat.id
@@ -35,7 +31,7 @@ export function CategoryNav() {
               }`}
             >
               {cat.label}
-            </button>
+            </Link>
           ))}
         </div>
       </div>
